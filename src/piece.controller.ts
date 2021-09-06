@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { PieceService } from './piece.service';
 import { NewPieceDTO } from './dtos/newPiece.dto';
 
@@ -6,9 +6,9 @@ import { NewPieceDTO } from './dtos/newPiece.dto';
 export class PieceController {
   constructor(private readonly pieceService: PieceService) {}
 
-  @Post('newPiece')
-  registerNewPiece(@Body() newPieceDTO: NewPieceDTO ) {
-    console.log(newPieceDTO);
+  @Post('/newPiece')
+  registerNewPiece(@Body() newPieceDTO: NewPieceDTO) {
+    
     return this.pieceService.registerNewPiece(newPieceDTO)
   }
 }
