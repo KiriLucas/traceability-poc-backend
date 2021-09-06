@@ -1,0 +1,1 @@
+A small proof of concept project for traceability on a factory, not meant to be clean or to follow best practices.
