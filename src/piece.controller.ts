@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { PieceService } from './piece.service';
 import { NewPieceDTO } from './dtos/newPiece.dto';
+import { GroupPiecesDTO } from './dtos/groupPieces.dto';
 
 @Controller('pieces')
 export class PieceController {
@@ -12,7 +13,7 @@ export class PieceController {
   }
 
   @Post('/group')
-  groupPieces(@Body() newPieceDTO: NewPieceDTO) {
-    return this.pieceService.registerNewPiece(newPieceDTO)
+  groupPieces(@Body() groupPiecesDTO: GroupPiecesDTO) {
+    return this.pieceService.groupPieces(groupPiecesDTO)
   }
 }

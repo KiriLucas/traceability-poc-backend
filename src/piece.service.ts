@@ -6,13 +6,17 @@ import { PieceModel } from './models/piece.model';
 
 @Injectable()
 export class PieceService {
-  
+
   constructor(@InjectModel(PieceModel)
   private pieceModel: typeof PieceModel){
   }
   
   registerNewPiece(newPieceDTO: NewPieceDTO) {
-    
+    const model = plainToClass(PieceModel, newPieceDTO);
+    model.save()
+  }
+
+  groupPieces(newPieceDTO: NewPieceDTO) {
     const model = plainToClass(PieceModel, newPieceDTO);
     model.save()
     return 'Hello World!' as any;
