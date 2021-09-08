@@ -6,9 +6,13 @@ import { NewPieceDTO } from './dtos/newPiece.dto';
 export class PieceController {
   constructor(private readonly pieceService: PieceService) {}
 
-  @Post('/newPiece')
+  @Post('/new')
   registerNewPiece(@Body() newPieceDTO: NewPieceDTO) {
-    
+    return this.pieceService.registerNewPiece(newPieceDTO)
+  }
+
+  @Post('/group')
+  groupPieces(@Body() newPieceDTO: NewPieceDTO) {
     return this.pieceService.registerNewPiece(newPieceDTO)
   }
 }
