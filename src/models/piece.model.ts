@@ -4,14 +4,8 @@ import { Table, Model, Column, DataType } from "sequelize-typescript";
 export class PieceModel extends Model {
 
     @Column({ type: DataType.STRING, allowNull: false })
-    name: string;
+    pieceId: string;
 
     @Column({ type: DataType.STRING, allowNull: true })
-    model: string;
-
-    @Column({ type: DataType.STRING, allowNull: false, defaultValue: 0 })
-    provider: string;
-
-    @Column({ type: DataType.STRING, allowNull: false, defaultValue: 0 })
-    manufacturingDate: string;
+    batchId: string;
 }

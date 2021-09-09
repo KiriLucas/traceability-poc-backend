@@ -1,6 +1,4 @@
 export class NewPieceDTO {
-    name: string;
-    model: string;
-    provider: string;
-    manufacturingDate: string;
+    pieceId: string;
+    batchId: string;
 }
