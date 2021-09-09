@@ -6,6 +6,9 @@ export class PieceModel extends Model {
     @Column({ type: DataType.STRING, allowNull: false })
     pieceId: string;
 
-    @Column({ type: DataType.STRING, allowNull: true })
+    @Column({ type: DataType.STRING, allowNull: false })
     batchId: string;
+
+    @Column({ type: DataType.STRING, allowNull: true })
+    groupId: string;
 }

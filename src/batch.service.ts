@@ -4,6 +4,7 @@ import { plainToClass } from 'class-transformer';
 import { GroupPiecesDTO } from './dtos/groupPieces.dto';
 import { NewBatchDTO } from './dtos/newBatch.dto';
 import { NewPieceDTO } from './dtos/newPiece.dto';
+import { BatchModel } from './models/batch.model';
 import { PieceModel } from './models/piece.model';
 
 @Injectable()
@@ -18,7 +19,11 @@ export class BatchService {
     model.save()
   }
 
-  listBatches() {
-    return 'Hello World!' as any;
+  async listAllBatches() {
+    return this.batchModel.findAll()
+  }
+
+  async getBatchById(batchId: string) {
+    return this.batchModel.findAll()
   }
 }

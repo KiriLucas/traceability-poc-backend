@@ -1,10 +1,9 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { SequelizeModule } from "@nestjs/sequelize";
-import { PieceModel } from "src/models/piece.model";
-import { PieceController } from "src/piece.controller";
-import { PieceService } from "src/piece.service";
-
+import { BatchController } from "src/batch.controller";
+import { BatchService } from "src/batch.service";
+import { BatchModel } from "src/models/batch.model";
 @Module({
     imports: [    
         ConfigModule.forRoot(),
@@ -18,9 +17,9 @@ import { PieceService } from "src/piece.service";
           autoLoadModels: true,
           synchronize: true,
         }),
-        SequelizeModule.forFeature([PieceModel]),
+        SequelizeModule.forFeature([BatchModel]),
     ],
-    controllers: [PieceController],
-    providers: [PieceService],
+    controllers: [BatchController],
+    providers: [BatchService],
 })
-export class PieceModule {}
+export class BatchModule {}
