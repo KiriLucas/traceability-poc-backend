@@ -14,6 +14,7 @@ export class BatchService {
   
   registerNewBatch(newBatchDTO: NewBatchDTO) {
     const model = plainToClass(PieceModel, newBatchDTO);
+    console.log(model)
     model.save()
   }
 

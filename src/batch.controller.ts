@@ -1,4 +1,5 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, ClassSerializerInterceptor, Controller, Get, Param, Post, UseInterceptors } from '@nestjs/common';
+import { plainToClass } from 'class-transformer';
 import { BatchService } from './batch.service';
 import { NewBatchDTO } from './dtos/newBatch.dto';
 
@@ -6,9 +7,12 @@ import { NewBatchDTO } from './dtos/newBatch.dto';
 export class BatchController {
     constructor(private readonly batchService: BatchService) { }
 
+    @UseInterceptors(ClassSerializerInterceptor)
     @Post('/new')
     registerNewBatch(@Body() newBatchDTO: NewBatchDTO) {
-        return this.batchService.registerNewBatch(newBatchDTO)
+        console.log(newBatchDTO);
+
+        // return this.batchService.registerNewBatch(newBatchDTO)
     }
 
     @Get('/list')
