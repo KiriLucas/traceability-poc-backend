@@ -4,6 +4,7 @@ import { SequelizeModule } from "@nestjs/sequelize";
 import { BatchController } from "src/batch.controller";
 import { BatchService } from "src/batch.service";
 import { BatchModel } from "src/models/batch.model";
+import { IsBatchExistantValidation } from "src/validators/isBatchExistant.validator";
 @Module({
     imports: [    
         ConfigModule.forRoot(),
@@ -20,6 +21,7 @@ import { BatchModel } from "src/models/batch.model";
         SequelizeModule.forFeature([BatchModel]),
     ],
     controllers: [BatchController],
-    providers: [BatchService],
+    providers: [BatchService, IsBatchExistantValidation],
+    exports: [BatchService]
 })
 export class BatchModule {}

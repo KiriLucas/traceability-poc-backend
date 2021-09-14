@@ -12,10 +12,12 @@ export class BatchService {
   private batchModel: typeof BatchModel){
   }
   
-  registerNewBatch(newBatchDTO: NewBatchDTO) {
-    const model = plainToClass(PieceModel, newBatchDTO);
-    console.log(model)
+  async registerNewBatch(newBatchDTO: NewBatchDTO) {
+    console.log('batata')
+    const batch = await this.getBatchById(newBatchDTO.batchId)
+    const model = plainToClass(BatchModel, newBatchDTO);
     model.save()
+    return model.batchId
   }
 
   async listAllBatches() {
@@ -23,7 +25,7 @@ export class BatchService {
   }
 
   async getBatchById(batchId: string) {
-    return this.batchModel.findOne({ where: { batchId: batchId } })
+    return await this.batchModel.findOne({ where: { batchId: batchId } })
   }
 
   async getBatchDetails(batchId: string) {

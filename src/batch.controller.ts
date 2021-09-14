@@ -9,10 +9,8 @@ export class BatchController {
 
     @UseInterceptors(ClassSerializerInterceptor)
     @Post('/new')
-    registerNewBatch(@Body() newBatchDTO: NewBatchDTO) {
-        console.log(newBatchDTO);
-
-        // return this.batchService.registerNewBatch(newBatchDTO)
+    registerNewBatch(@Body() newBatchDTO: NewBatchDTO):Promise<any> {
+        return this.batchService.registerNewBatch(newBatchDTO)
     }
 
     @Get('/list')
