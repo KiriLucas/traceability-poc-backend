@@ -16,6 +16,11 @@ export class PieceService {
   registerNewPiece(newPieceDTO: NewPieceDTO) {
     const model = plainToClass(PieceModel, newPieceDTO);
     model.save()
+    return model.pieceId
+  }
+
+  async listPieces(){
+    return this.pieceModel.findAll()
   }
 
   async findPiece(pieceId): Promise<PieceModel> {
@@ -44,7 +49,7 @@ export class PieceService {
   }
 
   createGroup(pieceA: PieceModel, pieceB: PieceModel) {
-    const groupId = pieceA.batchId.substring(0, 2) + pieceB.batchId.substring(0, 2) + pieceA.pieceId + pieceB.pieceId
+    const groupId = pieceA.batchId.substring(0, 1) + pieceB.batchId.substring(1, 2) + pieceA.pieceId + pieceB.pieceId
     return groupId
   }
 }

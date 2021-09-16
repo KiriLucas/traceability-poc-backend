@@ -9,12 +9,10 @@ import { PieceModel } from './models/piece.model';
 export class BatchService {
 
   constructor(@InjectModel(BatchModel)
-  private batchModel: typeof BatchModel){
+  private batchModel: typeof BatchModel) {
   }
-  
+
   async registerNewBatch(newBatchDTO: NewBatchDTO) {
-    console.log('batata')
-    const batch = await this.getBatchById(newBatchDTO.batchId)
     const model = plainToClass(BatchModel, newBatchDTO);
     model.save()
     return model.batchId

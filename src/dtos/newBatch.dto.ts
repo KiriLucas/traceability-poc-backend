@@ -6,7 +6,7 @@ export class NewBatchDTO {
     batchId: string;
 
     pieceModel: string;
-    ammount: string;
+    amount: string;
     provider: string;
     manufacturingDate: string;
 }

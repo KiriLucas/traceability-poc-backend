@@ -10,7 +10,7 @@ export class BatchModel extends Model {
     pieceModel: string;
 
     @Column({ type: DataType.STRING, allowNull: false, defaultValue: 0 })
-    ammount: string;
+    amount: string;
 
     @Column({ type: DataType.STRING, allowNull: false, defaultValue: 0 })
     provider: string;
